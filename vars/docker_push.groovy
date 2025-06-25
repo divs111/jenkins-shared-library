@@ -11,7 +11,7 @@ def call(Map config = [:]){
         passwordVariable: 'DOCKER_PASSWORD'
     )]) {
         sh """
-           echo "\$DOCKER_PASSWORD | docker login -u "\$DOCKER_USERNAME" --password-stdin
+           echo "\$DOCKER_PASSWORD" | docker login -u "\$DOCKER_USERNAME" --password-stdin
            docker push ${imageName}:${imageTag}
            docker push ${imageName}:latest
            """
